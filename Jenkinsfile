@@ -9,9 +9,9 @@ pipeline {
     environment {
         SCANNER_HOME    = tool 'sonar-scanner'
         TMDB_V3_KEY     = '2ddbd7777985bd3f59a07defffcb3e59'
-        DOCKER_USER     = 'YOUR_DOCKERHUB_USERNAME'  // Replace with your DockerHub username
+        DOCKER_USER     = 'kaif03'  // Replace with your DockerHub username
         DOCKER_IMAGE    = "${DOCKER_USER}/netflix:latest"
-        EMAIL_TO        = 'your-email@gmail.com'     // Replace with your email
+        EMAIL_TO        = 'mksocials21@gmail.com'     // Replace with your email
     }
 
     stages {
