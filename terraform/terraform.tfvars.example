@@ -1,0 +1,21 @@
+# AWS region to launch instances in
+aws_region = "us-east-1"
+
+# Existing EC2 Key Pair name in your AWS account (e.g. "my-key")
+key_name = "your-key-pair-name"
+
+# Restrict management access to your own public IP for security (e.g. ["203.0.113.50/32"])
+allowed_cidr_blocks = ["0.0.0.0/0"]
+
+# EC2 instance types
+jenkins_instance_type = "t2.large"
+k8s_instance_type     = "t2.medium"
+
+# Whether to provision the 2 Kubernetes nodes (Master + Worker)
+enable_k8s_cluster = true
+
+# Set to true if you want Terraform user_data to automatically install Jenkins, Docker,
+# SonarQube, Trivy, Node Exporter, Prometheus, and Grafana on first boot.
+# Set to false if you prefer running each installation command manually as per tutorial steps.
+install_tools_via_userdata = false
+
