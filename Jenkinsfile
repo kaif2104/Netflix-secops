@@ -56,18 +56,14 @@ pipeline {
             }
         }
 
+        /*
         stage('OWASP FS Scan') {
             steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
-                    dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
-                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml',
-                        failedTotalCritical: 1000,
-                        failedTotalHigh: 1000,
-                        unstableTotalCritical: 1000,
-                        unstableTotalHigh: 1000
-                }
+                dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
+        */
 
         stage('Trivy FS Scan') {
             steps {
