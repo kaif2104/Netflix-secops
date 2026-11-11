@@ -94,9 +94,6 @@ pipeline {
                 """
             }
         }
-
-        // Uncomment when Kubernetes cluster and credentialsId 'k8s' are ready:
-        /*
         stage('Deploy to Kubernetes') {
             steps {
                 script {
@@ -109,7 +106,6 @@ pipeline {
                 }
             }
         }
-        */
     }
 
     post {
