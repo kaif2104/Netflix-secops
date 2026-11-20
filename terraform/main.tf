@@ -68,6 +68,24 @@ resource "aws_security_group" "jenkins_sg" {
     cidr_blocks = var.allowed_cidr_blocks
   }
 
+  # HTTP (Required for Let's Encrypt validation & Web)
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # HTTPS (Secure Web)
+  ingress {
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   # Jenkins Web Console
   ingress {
     description = "Jenkins"
@@ -152,6 +170,24 @@ resource "aws_security_group" "k8s_sg" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = var.allowed_cidr_blocks
+  }
+
+  # HTTP (Required for Let's Encrypt validation & Web)
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # HTTPS (Secure Web)
+  ingress {
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # Kubernetes API Server
