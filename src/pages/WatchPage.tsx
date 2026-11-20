@@ -38,16 +38,15 @@ export function Component() {
   const windowSize = useWindowSize();
   const videoJsOptions = useMemo(() => {
     return {
-      preload: "metadata",
+      preload: "auto",
       autoplay: true,
-      controls: false,
-      // responsive: true,
-      // fluid: true,
+      muted: true, // Required by Chrome to allow autoplay without user gesture
+      controls: true,
       width: windowSize.width,
       height: windowSize.height,
       sources: [
         {
-          src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          src: "https://vjs.zencdn.net/v/oceans.mp4",
           type: "video/mp4",
         },
       ],
